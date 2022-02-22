@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask, send_from_directory
 from apscheduler.schedulers.background import BackgroundScheduler
 from medium import mediumPostsHandler, getPosts
