@@ -61,7 +61,7 @@ def mediumPostsHandler():
             if matchIndex > -1:
                 postStore[matchIndex] = p
             else:
-                postStore.extend(p)
+                postStore.insert(0, p)
 
     # save posts
     savePosts(postStore)

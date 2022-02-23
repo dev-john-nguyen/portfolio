@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f3fc7f6a.css",
-    "main.js": "/static/js/main.c84db625.js",
+    "main.css": "/static/css/main.fee60e75.css",
+    "main.js": "/static/js/main.c069f1cf.js",
     "static/media/Resume.pdf": "/static/media/Resume.a2228b0bcb8c78117725.pdf",
     "static/media/Port-Books.png": "/static/media/Port-Books.84d08e0bcefe4e607da5.png",
     "static/media/Port-PVOC.png": "/static/media/Port-PVOC.2bc43a8d0a84264fab00.png",
@@ -19,11 +19,11 @@
     "static/media/heart.svg": "/static/media/heart.60a3b745451173415cd05718f8ac7a60.svg",
     "static/media/contact.svg": "/static/media/contact.7135e00b6b7f1f863f37d34f8de51833.svg",
     "static/media/quote.svg": "/static/media/quote.e1c6ceb8e2ddd724d323e9eb6954785e.svg",
-    "main.f3fc7f6a.css.map": "/static/css/main.f3fc7f6a.css.map",
-    "main.c84db625.js.map": "/static/js/main.c84db625.js.map"
+    "main.fee60e75.css.map": "/static/css/main.fee60e75.css.map",
+    "main.c069f1cf.js.map": "/static/js/main.c069f1cf.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3fc7f6a.css",
-    "static/js/main.c84db625.js"
+    "static/css/main.fee60e75.css",
+    "static/js/main.c069f1cf.js"
   ]
 }
