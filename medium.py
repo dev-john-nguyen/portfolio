@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-postsPath = "posts.json"
+postsPath = "./client/build/posts.json"
 
 
 def formatPost(post):
