@@ -5,14 +5,11 @@ from firebase_admin import storage
 import firebase_admin
 from firebase_admin import credentials
 
-
-print(os.environ.get('PRIVATE_KEY'))
-
 cred = credentials.Certificate({
     "type": "service_account",
     "project_id": os.environ.get('PROJECT_ID'),
     "private_key_id": os.environ.get('PRIVATE_KEY_ID'),
-    "private_key": os.environ.get('PRIVATE_KEY'),
+    "private_key": os.environ.get('PRIVATE_KEY').replace('\\n', '\n'),
     "client_email": os.environ.get('CLIENT_EMAIL'),
     "client_id": os.environ.get('CLIENT_ID'),
     "token_uri": "https://oauth2.googleapis.com/token",
