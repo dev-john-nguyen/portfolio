@@ -5,7 +5,7 @@ from firebase_admin import storage
 import firebase_admin
 from firebase_admin import credentials
 
-postsPath = "./posts.json"
+print(os.environ.get('PROJECT_ID'))
 
 cred = credentials.Certificate({
     "type": "service_account",
