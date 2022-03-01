@@ -5,6 +5,9 @@ from firebase_admin import storage
 import firebase_admin
 from firebase_admin import credentials
 
+
+print(os.environ.get('PRIVATE_KEY'))
+
 cred = credentials.Certificate({
     "type": "service_account",
     "project_id": os.environ.get('PROJECT_ID'),
