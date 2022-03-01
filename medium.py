@@ -1,7 +1,27 @@
 import requests
 import json
 import os
-postsPath = "./client/build/posts.json"
+from firebase_admin import storage
+import firebase_admin
+from firebase_admin import credentials
+
+postsPath = "./posts.json"
+
+cred = credentials.Certificate({
+    "type": "service_account",
+    "project_id": os.environ.get('PROJECT_ID'),
+    "private_key_id": os.environ.get('PRIVATE_KEY_ID'),
+    "private_key": os.environ.get('PRIVATE_KEY'),
+    "client_email": os.environ.get('CLIENT_EMAIL'),
+    "client_id": os.environ.get('CLIENT_ID'),
+    "token_uri": "https://oauth2.googleapis.com/token",
+})
+
+firebase_app = firebase_admin.initialize_app(
+    cred, {"storageBucket": "athletecoder-192c9.appspot.com"})
+
+
+bucket = storage.bucket()
 
 
 def formatPost(post):
@@ -18,17 +38,17 @@ def formatPost(post):
     post['id'] = r[1]
 
 
-def savePosts(posts):
-    with open(postsPath, "w") as file:
-        json.dump(posts, file)
+def storePosts():
+    with open(postsPath) as file:
+        data = json.dumps(json.load(file))
+        blob = bucket.blob("posts.json")
+        blob.upload_from_string(data, content_type="application/json")
 
 
 def getPosts():
-    if os.path.isfile(postsPath) and os.access(postsPath, os.R_OK):
-        with open(postsPath) as file:
-            return json.load(file)
-    else:
-        return []
+    blob = bucket.blob("posts.json")
+    file = blob.download_as_string()
+    return json.loads(file)
 
 
 def findIndex(pred, iterable):
@@ -64,5 +84,6 @@ def mediumPostsHandler():
                 postStore.insert(0, p)
 
     # save posts
-    savePosts(postStore)
+    # savePosts(postStore)
+    storePosts()
     print("updated")
