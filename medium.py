@@ -38,11 +38,10 @@ def formatPost(post):
     post['id'] = r[1]
 
 
-def storePosts():
-    with open(postsPath) as file:
-        data = json.dumps(json.load(file))
-        blob = bucket.blob("posts.json")
-        blob.upload_from_string(data, content_type="application/json")
+def storePosts(postStore):
+    data = json.dumps(postStore)
+    blob = bucket.blob("posts.json")
+    blob.upload_from_string(data, content_type="application/json")
 
 
 def getPosts():
@@ -85,5 +84,5 @@ def mediumPostsHandler():
 
     # save posts
     # savePosts(postStore)
-    storePosts()
+    storePosts(postStore)
     print("updated")
