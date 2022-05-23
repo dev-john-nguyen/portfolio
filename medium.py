@@ -82,5 +82,7 @@ def mediumPostsHandler():
 
     # save posts
     # savePosts(postStore)
+    postStore = [x for x in postStore if x.get("id") != '995339720bab']
+
     storePosts(postStore)
     print("updated")
